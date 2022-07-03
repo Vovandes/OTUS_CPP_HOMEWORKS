@@ -6,7 +6,8 @@ add_executable(CMakeProject1_Hello_World
     "hello_world.cpp"
     "example.cpp"
     "example.h"
-)
+    "move_me_out.h" 
+    "move_me_out.cpp")
 
 set_target_properties(CMakeProject1_Hello_World PROPERTIES
     CXX_STANDARD 20
