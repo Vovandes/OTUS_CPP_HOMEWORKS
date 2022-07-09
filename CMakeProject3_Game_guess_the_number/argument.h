@@ -1,5 +1,5 @@
 #pragma once
 
-#include <string>
+#include "Gamer.h"
 
-void Arguments(int, char**, std::pair<std::string, int>&);
+void Arguments(int, char**, Gamer&);

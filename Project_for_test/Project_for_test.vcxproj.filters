@@ -21,9 +21,27 @@
     <ClCompile Include="..\CMakeProject3_Game_guess_the_number\argument.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\game.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Files.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Gamer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CMakeProject3_Game_guess_the_number\argument.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\game.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Files.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Gamer.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

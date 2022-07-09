@@ -1,3 +1,4 @@
 #pragma once
+#include "Gamer.h"
 
-void Game();
+void Game(Gamer& gamer);

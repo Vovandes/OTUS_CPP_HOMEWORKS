@@ -1,35 +1,40 @@
+#include <iostream>
+
 #include "argument.h"
 #include "game.h"
-
-#include <iostream>
-#include <string>
+#include "Files.h"
 
 int main(int argc, char** argv)
 {
 	setlocale(LC_ALL, "");
 	std::cout << "> Games guess the number < " << std::endl;
 
-	std::pair<std::string, int> mypair{};
-	const std::string high_scores_filename = "high_scores.txt";
+	Gamer gamer;
 
-	if (argc >= 2) { Arguments(argc, argv, mypair); }
 
-	if (mypair.first.empty() || mypair.second == -1) {
-		std::cout << "Incorrect parametr!!!" << std::endl;
-		system("pause");
-		return -1;
+	if (argc >= 2) {
+		Arguments(argc, argv, gamer);
+		if (gamer.GetMode().empty() || gamer.GetModeAtribut() == -1) {
+			std::cout << "Incorrect parametr!!!" << std::endl;
+			system("pause");
+			return -1;
+		}
+		if (gamer.GetMode() == "-table") {
+			PrintHighScore(gamer.GetFileName());
+			system("pause");
+			return 0;
+		}
 	}
 
-	std::cout << mypair.first << "\t" << mypair.second << std::endl;
+	std::vector<std::pair<std::string, int>> users_container{};
 
-	// Ask about name
-	std::string user_name{};	// Имя пользователя
-	std::cout << "Hi! Enter your name, please: ";
-	std::cin >> user_name;
+	Game(gamer);
+	users_container.push_back(make_pair(gamer.GetUsername(), gamer.GetAttemptsCount()));
 
-	unsigned attempts_count = 0;	// Количество попыток при угадывании
-
-
+	// Read hight_score.txt
+	ReadFile(users_container, gamer.GetFileName());
+	// Write in hight_score.txt
+	WriteFile(users_container, gamer.GetFileName());
 
 	system("pause");
 	return 0;

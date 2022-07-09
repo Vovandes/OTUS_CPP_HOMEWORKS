@@ -1,25 +1,27 @@
 #include "game.h"
 
-#include <iostream>
 #include <ctime>
 
-void Game() {
-	const int max_value = 100;
+void Game(Gamer& gamer) {
+	// Ask about name	
+	gamer.SetUsername();
 
-	unsigned short count = 0;
+	auto x = gamer.GetMaxValue();
+
+	unsigned count = 0;
 
 	std::srand(static_cast<unsigned>(std::time(nullptr))); // use current time as seed for random generator
 
-	const int target_value = std::rand() % max_value;	// Значение поиска
+	const int target_value = std::rand() % x;	// Значение поиска
 	int current_value = 0;			// Значение вводимое пользователем
-	bool not_win = true;		// bool на проверку победы
 
 	do {
-		std::cout << "Enter your guess:" << std::endl;
-		while (!(std::cin >> current_value)) {
+		std::cout << "Enter your guess from 0 to " << x - 1 << ": ";
+		while (!(std::cin >> current_value) || current_value < 0 || current_value >= x) {
 			std::cin.clear();
 			while (std::cin.get() != '\n');
 			std::cout << "Incorrect input!!!" << std::endl;
+			std::cout << "Enter your guess from 0 to " << x - 1 << ": ";
 		}
 
 		if (current_value < target_value) {
@@ -30,8 +32,9 @@ void Game() {
 		}
 		else {
 			std::cout << "you win!" << std::endl;
+			gamer.SetAttempCount(++count);
 			break;
 		}
-
+		++count;
 	} while (true);
 }

@@ -4,6 +4,12 @@ project(CMakeProject3_Game_guess_the_number)
 
 add_executable(CMakeProject3_Game_guess_the_number
         "main.cpp"
+        "Gamer.h"
+        "Gamer.cpp"
+        "Files.h"
+        "Files.cpp"
+        "game.h"
+        "game.cpp"
         "argument.h"
         "argument.cpp")
 
