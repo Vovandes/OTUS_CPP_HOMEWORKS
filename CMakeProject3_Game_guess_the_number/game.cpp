@@ -1,14 +1,21 @@
+#include "game.h"
+
 #include <iostream>
+#include <ctime>
 
-int main() {
+void Game() {
+	const int max_value = 100;
 
-	const int target_value = 54;
-	int current_value = 0;
-	bool not_win = true;
+	unsigned short count = 0;
 
-	std::cout << "Enter your guess:" << std::endl;
+	std::srand(static_cast<unsigned>(std::time(nullptr))); // use current time as seed for random generator
+
+	const int target_value = std::rand() % max_value;	// Значение поиска
+	int current_value = 0;			// Значение вводимое пользователем
+	bool not_win = true;		// bool на проверку победы
 
 	do {
+		std::cout << "Enter your guess:" << std::endl;
 		while (!(std::cin >> current_value)) {
 			std::cin.clear();
 			while (std::cin.get() != '\n');
@@ -27,7 +34,4 @@ int main() {
 		}
 
 	} while (true);
-
-	system("pause");
-	return 0;
 }

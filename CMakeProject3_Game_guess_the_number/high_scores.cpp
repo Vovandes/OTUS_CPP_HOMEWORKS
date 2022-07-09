@@ -1,10 +1,12 @@
+#include "high_scores.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
 
-int main() {
+void Files(const std::string file_name) {
 
-	const std::string high_scores_filename = "high_scores.txt";
+	const std::string file_name = "high_scores.txt";
 
 	// Ask about name
 	std::cout << "Hi! Enter your name, please:" << std::endl;
@@ -24,9 +26,9 @@ int main() {
 	{
 		// We should open the output file in the append mode - we don't want
 		// to erase previous results.
-		std::ofstream out_file{high_scores_filename, std::ios_base::app};
+		std::ofstream out_file{ file_name, std::ios_base::app };
 		if (!out_file.is_open()) {
-			std::cout << "Failed to open file for write: " << high_scores_filename << "!" << std::endl;
+			std::cout << "Failed to open file for write: " << file_name << "!" << std::endl;
 			return -1;
 		}
 
@@ -38,9 +40,9 @@ int main() {
 
 	// Read the high score file and print all results
 	{
-		std::ifstream in_file{high_scores_filename};
+		std::ifstream in_file{ file_name };
 		if (!in_file.is_open()) {
-			std::cout << "Failed to open file for read: " << high_scores_filename << "!" << std::endl;
+			std::cout << "Failed to open file for read: " << file_name << "!" << std::endl;
 			return -1;
 		}
 
@@ -64,6 +66,4 @@ int main() {
 			std::cout << username << '\t' << high_score << std::endl;
 		}
 	}
-
-	return 0;
 }
