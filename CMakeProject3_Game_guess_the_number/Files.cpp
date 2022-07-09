@@ -8,7 +8,7 @@
 void PrintHighScore(const std::string file_name) {
 	try {
 		// Read the high score file and print all results
-		std::ifstream in_file{ file_name };
+		std::ifstream in_file{ file_name, std::ios_base::app };
 		if (!in_file.is_open()) {
 			throw "Failed to open file for read: " + file_name + "!";
 		}
@@ -24,7 +24,10 @@ void PrintHighScore(const std::string file_name) {
 			in_file >> high_score;
 			// Ignore the end of line symbol
 			in_file.ignore();
-
+			if (username.empty()) {
+				std::cout << "High Score is empty..." << std::endl;
+				break;
+			}
 			if (in_file.fail()) {
 				break;
 			}
