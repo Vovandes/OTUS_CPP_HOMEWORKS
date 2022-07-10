@@ -4,13 +4,13 @@ project(CMakeProject3_Game_guess_the_number)
 
 add_executable(CMakeProject3_Game_guess_the_number
         "main.cpp"
-        "Gamer.h"
+        "Gamer.hpp"
         "Gamer.cpp"
-        "Files.h"
+        "Files.hpp"
         "Files.cpp"
-        "game.h"
+        "game.hpp"
         "game.cpp"
-        "argument.h"
+        "argument.hpp"
         "argument.cpp")
 
 target_compile_features(CMakeProject3_Game_guess_the_number PUBLIC cxx_std_20)

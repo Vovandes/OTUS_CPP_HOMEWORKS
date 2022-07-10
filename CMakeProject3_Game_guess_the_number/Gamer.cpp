@@ -1,4 +1,4 @@
-#include "Gamer.h"
+#include "Gamer.hpp"
 
 void Gamer::operator()(std::string param1, int param2) {
 	this->mode = param1;

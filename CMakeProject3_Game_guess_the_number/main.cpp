@@ -3,9 +3,9 @@
 
 extern std::vector<std::pair<std::string, int>> users_container;
 
-#include "argument.h"
-#include "game.h"
-#include "Files.h"
+#include "argument.hpp"
+#include "game.hpp"
+#include "Files.hpp"
 
 int main(int argc, char** argv)
 {

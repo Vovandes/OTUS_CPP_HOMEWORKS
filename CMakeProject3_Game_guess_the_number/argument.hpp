@@ -1,5 +1,5 @@
 #pragma once
 
-#include "Gamer.h"
+#include "Gamer.hpp"
 
 void Arguments(int, char**, Gamer&);
