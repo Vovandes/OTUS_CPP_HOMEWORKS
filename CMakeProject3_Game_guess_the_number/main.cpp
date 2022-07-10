@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+
+extern std::vector<std::pair<std::string, int>> users_container;
 
 #include "argument.h"
 #include "game.h"
@@ -26,10 +29,8 @@ int main(int argc, char** argv)
 		}
 	}
 
-	std::vector<std::pair<std::string, int>> users_container{};
-
 	Game(gamer);
-	users_container.push_back(make_pair(gamer.GetUsername(), gamer.GetAttemptsCount()));
+	users_container.emplace_back(make_pair(gamer.GetUsername(), gamer.GetAttemptsCount()));
 
 	// Read hight_score.txt
 	ReadFile(users_container, gamer.GetFileName());

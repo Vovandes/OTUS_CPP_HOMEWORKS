@@ -5,6 +5,8 @@
 #include <string>
 #include <algorithm>
 
+std::vector<std::pair<std::string, int>> users_container;
+
 void PrintHighScore(const std::string file_name) {
 	try {
 		// Read the high score file and print all results
@@ -79,7 +81,7 @@ void ReadFile(std::vector<std::pair<std::string, int>>& usersTable, const std::s
 			if (in_file.fail()) {
 				break;
 			}
-			usersTable.push_back(make_pair(username, high_score));
+			usersTable.emplace_back(make_pair(username, high_score));
 		}
 	}
 	catch (const std::exception& e) {
