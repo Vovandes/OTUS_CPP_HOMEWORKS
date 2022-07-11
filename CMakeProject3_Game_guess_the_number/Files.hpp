@@ -10,5 +10,3 @@ void SortUsers(std::vector<std::pair<std::string, int>>& usersTable);
 void ReadFile(std::vector<std::pair<std::string, int>>& usersTable, const std::string file_name);
 
 void WriteFile(std::vector<std::pair<std::string, int>>& usersTable, const std::string file_name);
-
-void Files(const std::string);
