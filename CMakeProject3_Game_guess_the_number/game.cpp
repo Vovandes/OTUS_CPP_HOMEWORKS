@@ -1,10 +1,10 @@
-#include "game.hpp"
+#include "game.h"
 
 #include <ctime>
 
-void Game(Gamer& gamer) {
+void RunGame(Gamer& gamer) {
 	// Ask about name	
-	gamer.SetUsername();
+	gamer.InputGamerName();
 
 	auto x = gamer.GetMaxValue();
 

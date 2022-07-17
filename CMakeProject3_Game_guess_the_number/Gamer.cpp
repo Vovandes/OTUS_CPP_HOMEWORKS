@@ -1,9 +1,9 @@
-#include "Gamer.hpp"
+#include "gamer.h"
 
-void Gamer::operator()(std::string param1, int param2) {
-	this->mode = param1;
-	this->mode_atribut = param2;
-	if (GetMode() == "-level") {
+void Gamer::operator()(AtributeCmd param1, int param2) {
+	SetMode(param1);
+	SetModeAtribute(param2);
+	if (GetMode() == AtributeCmd::LEVEL) {
 		switch (GetModeAtribut()) {
 		case 1:
 			SetMaxValue(10);
@@ -16,38 +16,42 @@ void Gamer::operator()(std::string param1, int param2) {
 			break;
 		}
 	}
-	if (GetMode() == "-max") {
+	if (GetMode() == AtributeCmd::MAX) {
 		SetMaxValue(GetModeAtribut());
 	}
 }
 
-std::string Gamer::GetMode() {
-	return this->mode;
-}
-
-int Gamer::GetModeAtribut() {
+int Gamer::GetModeAtribut() const {
 	return this->mode_atribut;
 }
 
-std::string Gamer::GetUsername() {
+const std::string& Gamer::GetUsername() {
 	return this->user_name;
 }
 
-const std::string Gamer::GetFileName() {
+const std::string& Gamer::GetFileName() {
 	return this->high_scores_filename;
 }
 
-unsigned Gamer::GetAttemptsCount() {
+unsigned Gamer::GetAttemptsCount() const {
 	return this->attempts_count;
 }
 
-int Gamer::GetMaxValue() {
+int Gamer::GetMaxValue() const {
 	return this->max_value;
 }
 
-void Gamer::SetUsername() {
+Gamer::AtributeCmd Gamer::GetMode() const {
+	return this->Mode;
+}
+
+void Gamer::InputGamerName() {
 	std::cout << "Hi! Enter your name, please: ";
 	std::cin >> this->user_name;
+}
+
+void Gamer::SetModeAtribute(int value) {
+	this->mode_atribut = value;
 }
 
 void Gamer::SetMaxValue(int value) {
@@ -56,4 +60,8 @@ void Gamer::SetMaxValue(int value) {
 
 void Gamer::SetAttempCount(unsigned count) {
 	this->attempts_count = count;
+}
+
+void Gamer::SetMode(AtributeCmd mode) {
+	this->Mode = mode;
 }

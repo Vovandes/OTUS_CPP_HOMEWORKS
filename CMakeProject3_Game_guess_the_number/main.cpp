@@ -1,36 +1,34 @@
 #include <iostream>
 #include <vector>
 
-extern std::vector<std::pair<std::string, int>> users_container;
+#include "argument.h"
+#include "game.h"
+#include "files.h"
 
-#include "argument.hpp"
-#include "game.hpp"
-#include "Files.hpp"
-
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
 	setlocale(LC_ALL, "");
 	std::cout << "> Games guess the number < " << std::endl;
 
 	Gamer gamer;
 
+	std::vector<std::pair<std::string, int>> users_container;
 
-	if (argc >= 2) {
-		Arguments(argc, argv, gamer);
-		if (gamer.GetMode().empty() || gamer.GetModeAtribut() == -1) {
-			std::cout << "Incorrect parametr!!!" << std::endl;
-			system("pause");
-			return -1;
-		}
-		if (gamer.GetMode() == "-table") {
-			PrintHighScore(gamer.GetFileName());
-			system("pause");
-			return 0;
-		}
+	ReadArguments(argc, argv, gamer);
+
+	switch (gamer.GetMode()) {
+	case Gamer::AtributeCmd::ERROR:
+		std::cout << "Incorrect parametr!!!" << std::endl;
+		system("pause");
+		return -1;
+	case Gamer::AtributeCmd::TABLE:
+		PrintHighScore(gamer.GetFileName());
+		system("pause");
+		return 0;
+	default:
+		RunGame(gamer);
+		users_container.emplace_back(make_pair(gamer.GetUsername(), gamer.GetAttemptsCount()));
+		break;
 	}
-
-	Game(gamer);
-	users_container.emplace_back(make_pair(gamer.GetUsername(), gamer.GetAttemptsCount()));
 
 	// Read hight_score.txt
 	ReadFile(users_container, gamer.GetFileName());
