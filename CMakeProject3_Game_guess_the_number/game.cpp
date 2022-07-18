@@ -6,7 +6,7 @@ void RunGame(Gamer& gamer) {
 	// Ask about name	
 	gamer.InputGamerName();
 
-	auto x = gamer.GetMaxValue();
+	auto x = gamer.GetMaxValue() + 1;
 
 	unsigned count = 0;
 

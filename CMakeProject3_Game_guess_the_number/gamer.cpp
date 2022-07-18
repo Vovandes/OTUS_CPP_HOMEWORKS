@@ -25,11 +25,11 @@ int Gamer::GetModeAtribut() const {
 	return this->mode_atribut;
 }
 
-const std::string& Gamer::GetUsername() {
+const std::string& Gamer::GetUsername() const {
 	return this->user_name;
 }
 
-const std::string& Gamer::GetFileName() {
+const std::string& Gamer::GetFileName() const {
 	return this->high_scores_filename;
 }
 

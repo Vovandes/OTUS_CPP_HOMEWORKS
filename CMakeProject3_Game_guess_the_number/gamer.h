@@ -15,8 +15,8 @@ public:
 
 	void operator()(Gamer::AtributeCmd param1, int param2);
 
-	const std::string& GetUsername();
-	const std::string& GetFileName();
+	const std::string& GetUsername() const;
+	const std::string& GetFileName() const;
 	int GetModeAtribut() const;
 	unsigned GetAttemptsCount() const;
 	int GetMaxValue() const;
