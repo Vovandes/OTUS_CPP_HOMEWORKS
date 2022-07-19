@@ -10,6 +10,7 @@ void PrintHighScore(const std::string& file_name) {
 	std::ifstream in_file{ file_name, std::ios_base::app };
 	if (!in_file.is_open()) {
 		std::cout << "Failed to open file for read: " << file_name << "!" << std::endl;
+		return;
 	}
 
 	std::cout << "High scores table:" << std::endl;
@@ -56,6 +57,7 @@ void ReadFile(std::vector<std::pair<std::string, int>>& usersTable, const std::s
 	std::ifstream in_file{ file_name, std::ios_base::app };
 	if (!in_file.is_open()) {
 		std::cout << "Failed to open file for read: " << file_name << "!" << std::endl;
+		return;
 	}
 
 	std::string username{};
@@ -86,6 +88,7 @@ void WriteFile(std::vector<std::pair<std::string, int>>& usersTable, const std::
 
 		if (!out_file.is_open()) {
 			std::cout << "Failed to open file for write: " << file_name << "!" << std::endl;
+			return;
 		}
 
 		for (const auto& i : usersTable) {
