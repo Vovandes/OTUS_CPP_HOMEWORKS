@@ -7,6 +7,8 @@
 #include "lexer.hpp"
 #include "parser.hpp"
 
+void CinClear();
+
 int main() {
 	setlocale(LC_ALL, "");
 	// TODO
@@ -25,10 +27,22 @@ int main() {
 
 	ASTNode* ast = parser.parse();
 	if (ast) {
-		//std::cout << "You input: " << lexer.get_STR() << std::endl;
 		ast->print(std::cout);
 	}
+	else {
+		std::cout << "Error Input!!!" << std::endl;
+	}
 
-	std::system("pause");
+	delete ast;
+
+	std::cout << "Push Enter key..." << std::endl;
+	CinClear();
+
 	return 0;
+}
+
+void CinClear() {
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.get();
 }

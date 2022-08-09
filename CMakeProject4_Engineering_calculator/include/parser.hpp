@@ -31,8 +31,10 @@ private:
 
 	ASTNode* prim();
 
+	ASTNode* ReturnNull(ASTNode* obj);
+
 	Lexer& lexer_;
 	Lexer::Token tok_{};
 
-	std::size_t operatorCount = 0;
+	//std::size_t operatorCount = 0;
 };
