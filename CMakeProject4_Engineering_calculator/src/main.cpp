@@ -35,14 +35,9 @@ int main() {
 
 	delete ast;
 
-	std::cout << "Push Enter key..." << std::endl;
-	CinClear();
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
+
+	std::cout << "Push Enter key..." << std::cin.get();
 
 	return 0;
-}
-
-void CinClear() {
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin.get();
 }

@@ -39,7 +39,7 @@ Lexer::Token Lexer::next_token() {
 				state_ = State::End;
 				return Token::Error;
 			}
-
+			isNegative_ = false;
 			state_ = State::Empty;
 			return Token::Number;
 		case State::ReadName:
