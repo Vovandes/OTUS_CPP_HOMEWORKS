@@ -7,8 +7,6 @@
 #include "lexer.hpp"
 #include "parser.hpp"
 
-void CinClear();
-
 int main() {
 	setlocale(LC_ALL, "");
 	// TODO

@@ -35,7 +35,7 @@ Lexer::Token Lexer::next_token() {
 				state_ = State::End;
 				return Token::Error;
 			}
-			if (std::isdigit(ch_)) {
+			if (std::isdigit(ch_) || std::isalpha(ch_)) {
 				state_ = State::End;
 				return Token::Error;
 			}
