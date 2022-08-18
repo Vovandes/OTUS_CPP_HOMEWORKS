@@ -15,34 +15,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\main.cpp">
+    <ClCompile Include="astnode.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\argument.cpp">
+    <ClCompile Include="lexer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\game.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Files.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Gamer.cpp">
+    <ClCompile Include="parser.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\argument.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="astnode.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\game.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="lexer.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Files.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="number.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Gamer.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="parser.hpp">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="add.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="sub.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="mul.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="div.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="variable.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\CMakeProject4_Engineering_calculator\README.md">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\CMakeProject4_Engineering_calculator\ДЗ_4._Инженерный_калькулятор_2-33395-b57f84.pdf">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

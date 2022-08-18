@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="astnode.cpp" />
+    <ClCompile Include="lexer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="parser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="add.hpp" />
+    <ClInclude Include="astnode.hpp" />
+    <ClInclude Include="div.hpp" />
+    <ClInclude Include="lexer.hpp" />
+    <ClInclude Include="mul.hpp" />
+    <ClInclude Include="number.hpp" />
+    <ClInclude Include="parser.hpp" />
+    <ClInclude Include="sub.hpp" />
+    <ClInclude Include="variable.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\CMakeProject4_Engineering_calculator\README.md" />
+    <None Include="..\CMakeProject4_Engineering_calculator\ДЗ_4._Инженерный_калькулятор_2-33395-b57f84.pdf" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,19 +147,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\argument.cpp" />
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\game.cpp" />
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Gamer.cpp" />
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\Files.cpp" />
-    <ClCompile Include="..\CMakeProject3_Game_guess_the_number\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\argument.h" />
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\game.h" />
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Gamer.h" />
-    <ClInclude Include="..\CMakeProject3_Game_guess_the_number\Files.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
