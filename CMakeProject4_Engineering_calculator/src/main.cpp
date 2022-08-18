@@ -25,10 +25,17 @@ int main() {
 
 	ASTNode* ast = parser.parse();
 	if (ast) {
-		//std::cout << "You input: " << lexer.get_STR() << std::endl;
 		ast->print(std::cout);
 	}
+	else {
+		std::cout << "Error Input!!!" << std::endl;
+	}
 
-	std::system("pause");
+	delete ast;
+
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
+
+	std::cout << "Push Enter key..." << std::cin.get();
+
 	return 0;
 }

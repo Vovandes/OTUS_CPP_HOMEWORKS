@@ -15,6 +15,7 @@ Lexer::Token Lexer::next_token() {
 			return Token::End;
 		case State::ReadNumber:
 			if (end()) {
+				isNegative_ ? number_ = -std::abs(number_) : number_ = std::abs(number_);
 				state_ = State::End;
 				return Token::Number;
 			}
@@ -24,13 +25,21 @@ Lexer::Token Lexer::next_token() {
 				next_char();
 				break;
 			}
+
+			isNegative_ ? number_ = -std::abs(number_) : number_ = std::abs(number_);
+
 			if (std::isspace(ch_)) {
 				clearIsSpace();
 			}
-			if(!isoperator(ch_) && ch_ != ')') {
+			if (!isoperator(ch_) && (isbrace(ch_) && brace_ != "(")) {
 				state_ = State::End;
 				return Token::Error;
 			}
+			if (std::isdigit(ch_) || std::isalpha(ch_)) {
+				state_ = State::End;
+				return Token::Error;
+			}
+			isNegative_ = false;
 			state_ = State::Empty;
 			return Token::Number;
 		case State::ReadName:
@@ -64,20 +73,37 @@ Lexer::Token Lexer::next_token() {
 			if (isoperator(ch_)) {
 				operator_ = ch_;
 				next_char();
+				if (std::isspace(ch_)) {
+					clearIsSpace();
+				}
+				if (ch_ == '\n' || ch_ == ')') {
+					state_ = State::End;
+					return Token::Error;
+				}
 				return Token::Operator;
 			}
 			if (ch_ == '(') {
+				brace_ = ch_;
 				next_char();
 				if (std::isspace(ch_)) {
 					clearIsSpace();
 				}
-				if (isoperator(ch_)) {
+				if (ch_ == '-') {
+					isNegative_ = true;
+					next_char();
+				}
+				else {
+					isNegative_ = false;
+				}
+				if (isoperator(ch_) && !isNegative_) {
 					state_ = State::End;
 					return Token::Error;
 				}
 				return Token::Lbrace;
 			}
 			if (ch_ == ')') {
+				brace_ = ch_;
+				isNegative_ = false;
 				next_char();
 				return Token::Rbrace;
 			}
@@ -88,7 +114,13 @@ Lexer::Token Lexer::next_token() {
 				break;
 			}
 			if (std::isalpha(ch_)) {
-				name_ = ch_;
+				if (isNegative_) {
+					name_ = "-";
+					name_ += ch_;
+				}
+				else {
+					name_ = ch_;
+				}
 				state_ = State::ReadName;
 				next_char();
 				break;
@@ -98,13 +130,15 @@ Lexer::Token Lexer::next_token() {
 }
 
 Lexer::Lexer(std::istream& in)
-	: state_(State::Empty)
-	, number_(0)
-	, in_(in) {
+	: state_{ State::Empty }
+	, number_{ 0 }
+	, in_{ in } {
 	next_char();
-	if (std::isspace(static_cast<unsigned char>(ch_)) && !end()) {
-		clearIsSpace();
+	ch_ == '-' ? isNegative_ = true : isNegative_ = false;
+	if (isNegative_) {
+		next_char();
 	}
+	clearIsSpace();
 }
 
 char Lexer::next_char() {

@@ -12,6 +12,7 @@ ASTNode::ASTNode(const std::string& repr, ASTNode* lhs, ASTNode* rhs)
 	, rhs_{ rhs } {}
 
 ASTNode::~ASTNode() {
+	//std::cout << "Destructor" << std::endl;
 	delete lhs_;
 	delete rhs_;
 }
@@ -23,6 +24,7 @@ void ASTNode::print(std::ostream& out) const {
 	else {
 		inner_print(out, 0);
 	}
+	/*inner_print(out, 0);*/
 }
 
 void ASTNode::inner_print(std::ostream& out, size_t indent) const {
@@ -36,4 +38,5 @@ void ASTNode::inner_print(std::ostream& out, size_t indent) const {
 	if (rhs_) {
 		rhs_->inner_print(out, indent + 1);
 	}
+	std::cout << std::endl;
 }
